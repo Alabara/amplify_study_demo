@@ -17,6 +17,6 @@ type MyFunctionOutput {
 }
 type Query {
   callMyFunction(input: MyFunctionInput): MyFunctionOutput
-  @function(name:"testfunc")
+  @function(name:"testfunc-${env}")
 }
 

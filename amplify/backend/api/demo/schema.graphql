@@ -1,0 +1,22 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+type Todo @model {
+  id: ID!
+  name: String!
+  description: String
+}
+
+input MyFunctionInput {
+  param1: String!
+}
+type MyFunctionOutput {
+  statusCode: Int
+  body: String
+}
+type Query {
+  callMyFunction(input: MyFunctionInput): MyFunctionOutput
+  @function(name:"testfunc")
+}
+
